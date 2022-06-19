@@ -15,6 +15,7 @@ from sklearn.metrics import roc_curve
 from sklearn.metrics import accuracy_score
 import matplotlib.pyplot as plt
 from sklearn.metrics import plot_confusion_matrix
+import os
 
 # COMMAND ----------
 
@@ -23,9 +24,15 @@ from sklearn.metrics import plot_confusion_matrix
 
 # COMMAND ----------
 
-features_df = pd.read_pickle("/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/features.pkl")
-test_df = pd.read_csv("/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/test_data-1.csv",header=None)
-labels_df = pd.read_csv("/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/train_labels-3.csv",header=None)
+def loading_files(file_name):
+    df_path = os.path.join("/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/", file_name)
+    return df_path
+
+# COMMAND ----------
+
+features_df = pd.read_pickle(loading_files("features.pkl"))
+test_df = pd.read_csv(loading_files("test_data-1.csv"),header=None)
+labels_df = pd.read_csv(loading_files("train_labels-3.csv"),header=None)
 
 # COMMAND ----------
 

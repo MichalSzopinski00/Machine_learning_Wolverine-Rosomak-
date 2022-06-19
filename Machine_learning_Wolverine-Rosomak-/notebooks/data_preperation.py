@@ -10,6 +10,7 @@ import matplotlib as plt
 import numpy as np
 from scipy.stats import zscore as z_score_calculating, median_abs_deviation
 from sklearn.decomposition import PCA, KernelPCA
+import os
 
 # COMMAND ----------
 
@@ -18,22 +19,19 @@ from sklearn.decomposition import PCA, KernelPCA
 
 # COMMAND ----------
 
-features_path = "/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/train_data-1.csv"
-#test = "/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/test_data-1.csv"
-target_labels_path = "/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/train_labels-2.csv"
+def loading_files(file_name):
+    df_path = os.path.join("/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/", file_name)
+    return df_path
 
 # COMMAND ----------
 
-
-rows_num = pd.read_csv('/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/train_data-1.csv', nrows = 1)
+rows_num = pd.read_csv(loading_files("train_data-1.csv"), nrows = 1)
 observations = []
 col_num = len(rows_num.columns)
 observations = ['observations_' + str(n) for n in range (0, col_num)]
 
-
-features_df = pd.read_csv(features_path, names = observations)
-#test_1 = pd.read_csv(test,header=None,names="observations_")
-target_labels_df = pd.read_csv(target_labels_path, names=['labels'])
+features_df = pd.read_csv(loading_files("train_data-1.csv"), names = observations)
+target_labels_df = pd.read_csv(loading_files("train_labels-2.csv"), names=['labels'])
 
 features_df.head()
 
@@ -280,7 +278,7 @@ sns.scatterplot(kpca_embeded[:,0]
 
 # COMMAND ----------
 
-features_df_final.to_pickle("/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/features.pkl")
+features_df_final.to_pickle(loading_files("features.pkl"))
 
 # COMMAND ----------
 

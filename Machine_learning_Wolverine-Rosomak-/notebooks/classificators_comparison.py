@@ -23,6 +23,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from hpsklearn import HyperoptEstimator, svc,any_classifier
 from hyperopt import tpe
 import pickle
+import os
 
 # COMMAND ----------
 
@@ -31,9 +32,15 @@ import pickle
 
 # COMMAND ----------
 
-features_df = pd.read_pickle("/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/features.pkl")
-test_df = pd.read_csv("/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/test_data-1.csv",header=None)
-labels_df = pd.read_csv("/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/train_labels-3.csv",header=None)
+def loading_files(file_name):
+    df_path = os.path.join("/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/", file_name)
+    return df_path
+
+# COMMAND ----------
+
+features_df = pd.read_pickle(loading_files("features.pkl"))
+test_df = pd.read_csv(loading_files("test_data-1.csv"),header=None)
+labels_df = pd.read_csv(loading_files("train_labels-3.csv"),header=None)
 
 # COMMAND ----------
 
