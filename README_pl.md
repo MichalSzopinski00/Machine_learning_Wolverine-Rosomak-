@@ -34,4 +34,4 @@ Udowodniliśmy, że do posiadanego przez nas problemu klasyfikacyjnego najlepszy
   
   ![image](https://user-images.githubusercontent.com/101052451/174488480-54de845c-39bd-48ad-9597-007aa25362b9.png)
 
-, co zapewni nam relatywnie wysoki poziom predykcji przy zachowaniu mniejszego wyniku fałszywie negatywnych odpowiedzi w 95%
+, co zapewni nam relatywnie wysoki poziom predykcji, przy zachowaniu niskiego wyniku fałszywie negatywnych odpowiedzi, w 95%
