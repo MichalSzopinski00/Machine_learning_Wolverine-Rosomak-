@@ -17,7 +17,7 @@ That’s why we decided to not standardize the data since it could make our labe
 
 In the next step we defined our baseline(DummyClassifier) using “most_frequent” strategy. From our Dummy we was able to get this metrics:
 
-F1 Score: 0.9413092550790069
+F1 Score: 0.9413092550790069<br>
 Confusion matrix:<br>
  ![image](https://user-images.githubusercontent.com/49531926/175608651-a1213761-6cb8-4452-b2ca-b5341ccf87e5.png)
 
@@ -26,13 +26,13 @@ To pick the best model we used GridSearch/ Randomized GridSearch and H2O(AutoML)
 With this hyper parameters and metrics:<br>
  ![image](https://user-images.githubusercontent.com/49531926/175608636-ba7d24ee-5bef-4c34-85a4-fc1fc1f3ff49.png)
 
-F1 Score: 0.9747504403992954
+F1 Score: 0.9747504403992954<br>
  Confusion matrix:<br>
 ![image](https://user-images.githubusercontent.com/49531926/175608662-a379d7f7-0ffd-496f-87e1-ba7899a9e6df.png)
 
 As we can see the KNN model was better than our baseline, which we can see in comparison between F1 and confusion metrics. In the same time also now most of the labels before classified as false positive were now correctly marked as positive negative. In fact the H2O model has a bit better accuracy in classifying the labels however the balance on H2O model is more on false negative rather than on false Positive side, that’s why we believe that KNN model is the best choice compare to H2O model.
 H2O model metrics:
-F1 score dla h2o: 0.9786003470213996
+F1 score dla h2o: 0.9786003470213996<br>
 confusion matrix dla h2o<br>
 ![image](https://user-images.githubusercontent.com/49531926/175608679-15786d2f-64fa-4a25-93a0-5da7cbe871fe.png)
 
