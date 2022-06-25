@@ -14,7 +14,7 @@ main():
     train_f = h2o.H2OFrame(train_pd)
 
 
-    train, valid = train_f.split_frame(ratios=[.75])
+    train, valid = train_f.split_frame(ratios=[.80])
 
     y="Labels"
     # For binary classification, response should be a factor
