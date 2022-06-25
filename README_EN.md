@@ -1,8 +1,17 @@
 <h1>ML Project</h1><br>
   <i>Michał Szopiński</i> <BR>
   <i>Jan Michalski</i> <BR><BR><BR>
-Goal of the project was to find the best prediction model for given data.
+Goal of the project was to find the best prediction model for given data.<br><br>
 
+ feel free to download processed data from pickle file using below link:<br>
+ train:<br>
+ https://drive.google.com/file/d/1tcqziY3sWYN4DBWpvT1Q0l07vqoyeyGJ/view?usp=sharing<br>
+ labels for train:<br>
+  
+ test dataset:<br>
+ 
+ 
+  
 We got the data in 3 different files. The first one contain the features, second the labels which contain 2 classes (-1,1) and the last one contains test data. The entire train dataset has 10k columns and 3750 rows. We classified that this is a classification problem. We checked our train data and examine if it has normal distribution. Only two columns were not normally distributed(it’s clarified within EDA file). Our next step was to identify the outlayers. We were able to catch 17928 outlayers. We turn them into the NaN values and then later on filled them using the median of current column. We also tried to visualize training data using KPCA, Tsne and PCA+ Tsne(with and without standardization). During replications it turned out that the data with standardization was less clearer to read:
 
 With standardization:<br><br>
