@@ -8,17 +8,18 @@ from sklearn.linear_model import LinearRegression, LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.neighbors import KNeighborsClassifier
+import hyper_parameters
 import os
     
 def loading_files(file_name):
-    df_path = os.path.join('dbfs','FileStore','shared_uploads','michal.szopinski@interia.eu','ML_data', file_name)
+    df_path = os.path.join("D:\ML", file_name)
     return df_path
 
 def c_calculation():
     C = np.linspace(1.0,10000.0,num=1000,dtype=float)
     return C
 
-def best_estim_report(model);
+def best_estim_report(model):
     print(" Results from Grid Search " )
     print("\n The best estimator across ALL searched params:\n",model.best_estimator_)
     print("\n The best score across ALL searched params:\n",model.best_score_)
@@ -26,7 +27,7 @@ def best_estim_report(model);
     
 def save_to_csv(arr):
     df = pd.DataFrame(arr, columns=["Predicted_val"] )
-    path = os.path.join('dbfs','FileStore','shared_uploads','michal.szopinski@interia.eu','ML_data',"predicted_val.csv")
+    path = os.path.join("D:\ML","predicted_val.csv")
     df.to_csv(path)
     
 def main():
@@ -39,7 +40,7 @@ def main():
 
     pipe = Pipeline([("classifier",RandomForestClassifier())])
     print("initializing grid search")
-    multi_grid_search_gs = GridSearchCV(pipe,search_space,verbose=1,n_jobs=-1,scoring='f1_micro')
+    multi_grid_search_gs = GridSearchCV(pipe,hyper_parameters.search_space,verbose=1,n_jobs=-1,scoring='f1_micro')
     best_models_gs = multi_grid_search_gs.fit(features_train,target_train.values.flatten())
 
 
