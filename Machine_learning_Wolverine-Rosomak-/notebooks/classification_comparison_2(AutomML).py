@@ -1,6 +1,8 @@
 import h2o
 from h2o.automl import H2OAutoML
-    h2o.init()
+h2o.init()
+
+main():
 
     train_p = pickle.load(open("/dbfs/FileStore/shared_uploads/michal.szopinski@interia.eu/ML_data/features.pkl", 'rb'))
     features_h2o = h2o.H2OFrame(train_p)
@@ -31,3 +33,7 @@ from h2o.automl import H2OAutoML
     perf = aml.leader.model_performance(valid)
 
     perf.F1()
+
+if __name__ == __main__: 
+    main()
+        
