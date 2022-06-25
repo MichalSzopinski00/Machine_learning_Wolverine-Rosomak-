@@ -1,10 +1,3 @@
-# Databricks notebook source
-# MAGIC %pip install git+https://github.com/hyperopt/hyperopt-sklearn
-# MAGIC %pip install requests
-# MAGIC %pip install tabulate
-# MAGIC %pip install future
-# MAGIC %pip uninstall h2o
-# MAGIC %pip install -f http://h2o-release.s3.amazonaws.com/h2o/latest_stable_Py.html h2o
 
 from sklearn import svm, datasets
 from sklearn.dummy import DummyClassifier
@@ -22,6 +15,7 @@ from hpsklearn import HyperoptEstimator, svc,any_classifier
 from hyperopt import tpe
 import pickle
 import os
+import hyper_parameters
     
 def loading_files(file_name):
     df_path = os.path.join('dbfs','FileStore','shared_uploads','michal.szopinski@interia.eu','ML_data', file_name)
@@ -48,23 +42,6 @@ main():
     logistic_reg_2 = LogisticRegression(random_state=0,max_iter=5000,solver="liblinear")
 
     pipe = Pipeline([("classifier",RandomForestClassifier())])
-
-    search_space = [
-                    {
-                    "classifier":[logistic_reg_2],
-                    "classifier__penalty":['l1','l2'],
-                    "classifier__C":c_calculation()
-                    },
-                    {
-                    "classifier":[RandomForestClassifier()],
-                    "classifier__n_estimators":[10,100,1000],
-                    "classifier__max_features":[1,2,3,4,5,6,7,8,9]
-                    },
-                    {
-                    "classifier":[KNeighborsClassifier()],
-                    "classifier__n_neighbors":[3,5,7,9,11,13,15,17,19,21]
-                    }
-                    ]
 
     multi_grid_search_gs = GridSearchCV(pipe, search_space,verbose=1,n_jobs=-1,scoring='f1_micro')
     best_models_gs = multi_grid_search_gs.fit(features_train,target_train.values.flatten())
