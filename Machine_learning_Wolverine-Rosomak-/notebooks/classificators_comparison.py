@@ -23,7 +23,8 @@ from hyperopt import tpe
 import pickle
 import os
 
-
+main():
+    
 def loading_files(file_name):
     df_path = os.path.join('dbfs','FileStore','shared_uploads','michal.szopinski@interia.eu','ML_data', file_name)
     return df_path
@@ -37,8 +38,6 @@ def best_estim_report(model);
     print("\n The best estimator across ALL searched params:\n",model.best_estimator_)
     print("\n The best score across ALL searched params:\n",model.best_score_)
     print("\n The best Hyperparameters across ALL searched params:\n",model.best_params_)
-
-if __name__ == __main__:
     
 
     features_df = pd.read_pickle(loading_files("features.pkl"))
@@ -79,3 +78,6 @@ if __name__ == __main__:
     f1_score(target_test, y_predict)
 
     plot_confusion_matrix(best_models_gs, features_test, target_test)
+    
+if __name__ == __main__:
+    main()
