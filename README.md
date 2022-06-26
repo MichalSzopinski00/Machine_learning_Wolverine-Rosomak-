@@ -3,7 +3,7 @@
   <i>Jan Michalski</i> <BR><BR><BR>
 Goal of the project was to find the best prediction model for given data.<br><br>
 
- feel free to download datasets use below links:<br>
+ If you would like to replicate my scenario feel free to download datasets use below links:<br>
  train(before preparation):<br>
   https://drive.google.com/file/d/1mHJtAClxaURbVJMrckoC8jBLDwA1LqEi/view?usp=sharing<br>
   
