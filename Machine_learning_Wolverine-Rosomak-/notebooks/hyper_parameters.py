@@ -1,3 +1,9 @@
+from sklearn.linear_model import LinearRegression, LogisticRegression
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.neighbors import KNeighborsClassifier
+from classificators_comparison import c_calculation
+logistic_reg_2 = LogisticRegression(random_state=0,max_iter=5000,solver="liblinear")
+
 search_space = [
                 {
                 "classifier":[logistic_reg_2],
