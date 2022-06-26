@@ -8,3 +8,5 @@ pip install tabulate
 pip install future
 pip uninstall h2o
 pip install -f http://h2o-release.s3.amazonaws.com/h2o/latest_stable_Py.html h2o
+# also if you would like to use h2o library you would need to install the java follow this documentation in order to set it up:
+https://docs.h2o.ai/h2o/latest-stable/h2o-docs/welcome.html#java-requirements
