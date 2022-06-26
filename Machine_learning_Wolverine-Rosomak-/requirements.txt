@@ -1,10 +1,10 @@
-# local package
--e .
+# local packages
 
-# Databricks notebook source
-# MAGIC %pip install git+https://github.com/hyperopt/hyperopt-sklearn
-# MAGIC %pip install requests
-# MAGIC %pip install tabulate
-# MAGIC %pip install future
-# MAGIC %pip uninstall h2o
-# MAGIC %pip install -f http://h2o-release.s3.amazonaws.com/h2o/latest_stable_Py.html h2o
+pip install scikit-learn
+pip install pandas
+pip install git+https://github.com/hyperopt/hyperopt-sklearn
+pip install requests
+pip install tabulate
+pip install future
+pip uninstall h2o
+pip install -f http://h2o-release.s3.amazonaws.com/h2o/latest_stable_Py.html h2o
